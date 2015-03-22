@@ -8,6 +8,9 @@ int[] clickY = new int[100];
 
 int clickCounter = 0;
 
+PImage pencil;
+PImage hand;
+
 void setup() {
   size( displayWidth, displayHeight);
   background(#F09E52);
@@ -15,6 +18,9 @@ void setup() {
   PFont font;
   font = createFont( "InputMono-Light", 36 );
   textFont(font);
+
+  pencil = loadImage("pencil.png");
+  hand = loadImage("hand.png");
 }
 
 void draw() {
@@ -70,17 +76,21 @@ void draw() {
   fill(250, 180, 30);
   rect(22, 22, 178, 78, 6);
   rect(222, 22, 278, 78, 6);
-  cursor(CROSS);
+  //cursor(CROSS);
+  
   
   if( 19 < mouseX && mouseX < 181 && 19 < mouseY && mouseY < 81){
     fill(220, 150, 20);
     rect(22, 22, 178, 78, 6);
-    cursor(HAND);
+    cursor(hand, 0, 0);
   }
-  if( 219 < mouseX && mouseX < 281 && 19 < mouseY && mouseY < 81){
+  else if( 219 < mouseX && mouseX < 281 && 19 < mouseY && mouseY < 81){
     fill(200, 120, 20);
     rect(222, 22, 278, 78, 6);
-    cursor(HAND);
+    cursor(hand, 0, 0);
+  }
+  else{ 
+    cursor(pencil, 0, 0);
   }
   
   fill(255);
